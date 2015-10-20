@@ -28,7 +28,7 @@ TODO: Write usage instructions here
 ###IOS 9.0 适配 
 从ios8到ios 9.0适配主要可以参考[iOS9AdaptationTips](https://github.com/ChenYilong/iOS9AdaptationTips),里面又详细的适配教程。该`Xcadaptor`工具主要实现了如下:
 
-* 适配9.0的ssl
+* 适配9.0的ssl,具体各个参数使用[App Transport Security Technote](https://developer.apple.com/library/prerelease/ios/technotes/App-Transport-Security-Technote/)
 
     ```ruby
 	xcadaptor adapt ios 9.0 --category ssl
