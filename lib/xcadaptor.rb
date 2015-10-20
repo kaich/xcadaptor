@@ -8,7 +8,7 @@ module Xcadaptor
     include Thor::Actions
 
 
-    desc "ios SUBCOMMAND", "manage ios project adapt"
+    desc "adapt SUBCOMMAND", "manage  project adapt"
     subcommand "adapt", Xcadaptor::Adapt
   end
 

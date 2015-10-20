@@ -88,7 +88,9 @@ module Xcadaptor
     # save your change 
     def save 
       @project.save
-      Xcodeproj::PlistHelper.write @info_plist, self.info_plist_path 
+      if @info_plist
+        Xcodeproj::PlistHelper.write @info_plist, self.info_plist_path 
+      end 
     end
 
     private
