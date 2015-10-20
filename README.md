@@ -25,6 +25,9 @@ TODO: Write usage instructions here
 
 现有功能：	
 
+###IOS 9.0 适配 
+从ios8到ios 9.0适配主要可以参考[iOS9AdaptationTips](https://github.com/ChenYilong/iOS9AdaptationTips),里面又详细的适配教程。该`Xcadaptor`工具主要实现了如下:
+
 * 适配9.0的ssl
 
     ```ruby
@@ -35,6 +38,11 @@ TODO: Write usage instructions here
    ```ruby
    xcadaptor adapt ios 9.0 --category bitcode
    ```
+* 适配9.0的url scheme
+
+	```ruby
+	xcadaptor adapt ios 9.0 --category urlscheme
+	```
 如果要全部执行ios9.0的适配，请不要添加option参数
 
 	```ruby

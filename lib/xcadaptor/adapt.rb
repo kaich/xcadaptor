@@ -46,7 +46,7 @@ module Xcadaptor
           puts "ios version not found."
         end
       rescue => e 
-        puts e.backtrace
+        puts e
       end 
     end
 
