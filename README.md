@@ -49,6 +49,7 @@ TODO: Write usage instructions here
 	xcadaptor adapt ios 9.0
 	```
 
+`在项目的根目录中执行以上命令`
 
 ## Contributing
 
