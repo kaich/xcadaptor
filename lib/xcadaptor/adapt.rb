@@ -15,9 +15,9 @@ module Xcadaptor
     --category : category task, eg: 'bitcode' , 'ssl'
 
     LONGDESC
-    option :category ,:type => :array   , :banner => "adapt category , in ios 9 eg: 'bitcode' 'ssl'"
+    option :category ,:type => :array   , :banner => "adapt category , in ios 9 eg: 'bitcode' 'ssl'" , aliases:c
     def ios(version)
-      sub_command_file_path =  File.expand_path "#{File.dirname(__FILE__)}/IOS/#{version}"
+      sub_command_file_path =  File.expand_path "#{File.dirname(__FILE__)}/Adapt/IOS/#{version}"
       begin
         if require_all(sub_command_file_path)
           function_types = options[:category] 
@@ -25,7 +25,7 @@ module Xcadaptor
             #excute specified cateoty update
             function_types.each do |function_type|
               if File.exist? "#{sub_command_file_path}/#{function_type}.rb" 
-                run_category function_type 
+                run_category function_type  , version
               else
                 puts "#{function_type} not found\n"
               end
@@ -37,7 +37,7 @@ module Xcadaptor
             Dir.glob("#{sub_command_file_path}/*.rb").each do |f_path|
               pn = Pathname.new f_path
               file_name = pn.basename(".*").to_s
-              run_category file_name 
+              run_category file_name  , version
             end
 
           end
@@ -60,6 +60,7 @@ module Xcadaptor
             require f_path
           end 
         rescue => e
+          puts e
           return false  
         end
         return true;
@@ -67,8 +68,8 @@ module Xcadaptor
 
 
     # run category task  
-    def run_category(category_name)
-      class_name = "Xcadaptor::#{category_name.capitalize}"
+    def run_category(category_name,ios_version)
+      class_name = "Xcadaptor::AdaptModule::IOS#{ios_version.to_i}Module::#{category_name.capitalize}"
       clazz = class_name.split('::').inject(Object) {|o,c| o.const_get c}
       clazz.run 
     end

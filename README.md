@@ -51,6 +51,19 @@ TODO: Write usage instructions here
 
 `在项目的根目录中执行以上命令`
 
+###配置
+添加了`xcadaptor config`命令，目前值支持ios9的 ssl
+
+* 配置ssl. 默认情况下如果有NSAppTransportSecurity就不会覆盖。
+	* -b是黑名单可以任何形式访问，
+	* -w是白名单就是必须要通过ssl访问。
+	* -f 是强制覆盖。覆盖原来的NSAppTransportSecurity配置
+  
+  ```ruby
+  xcadaptor config ssl -b www.baidu.com www.aisi.com www.google.com  -w tengxun.com -f
+  ```
+
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/xcadaptor/fork )
