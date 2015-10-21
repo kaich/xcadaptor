@@ -15,7 +15,7 @@ module Xcadaptor
     --category : category task, eg: 'bitcode' , 'ssl'
 
     LONGDESC
-    option :category ,:type => :array   , :banner => "adapt category , in ios 9 eg: 'bitcode' 'ssl'" , aliases:c
+    option :category ,:type => :array   , :banner => "adapt category , in ios 9 eg: 'bitcode' 'ssl'" ,:aliases => :c
     def ios(version)
       sub_command_file_path =  File.expand_path "#{File.dirname(__FILE__)}/Adapt/IOS/#{version}"
       begin
