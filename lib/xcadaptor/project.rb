@@ -25,7 +25,7 @@ module Xcadaptor
     end
 
     def info_plist 
-      @info_plist = Xcodeproj::PlistHelper.read self.info_plist_path
+      @info_plist = Xcodeproj::Plist.read_from_path self.info_plist_path
     end
 
     # set project setting , block praram key , return bool value
@@ -89,7 +89,7 @@ module Xcadaptor
     def save 
       @project.save
       if @info_plist
-        Xcodeproj::PlistHelper.write @info_plist, self.info_plist_path 
+        Xcodeproj::Plist.write_to_path @info_plist, self.info_plist_path 
       end 
     end
 
